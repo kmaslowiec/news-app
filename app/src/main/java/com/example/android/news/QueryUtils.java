@@ -22,7 +22,9 @@ import java.util.List;
  */
 public final class QueryUtils {
 
-    /** Tag for the log messages */
+    /**
+     * Tag for the log messages
+     */
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
 
@@ -34,13 +36,7 @@ public final class QueryUtils {
     private QueryUtils() {
     }
 
-    public static List<News> fetchEarthquakeData(String requestUrl) {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) { // Testing if ProgressBar appears
-            e.printStackTrace();
-        }
-
+    public static List<News> fetchNewsData(String requestUrl) {
 
         // Create URL object
         URL url = createUrl(requestUrl);
@@ -54,10 +50,10 @@ public final class QueryUtils {
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
-        List<News> earthquakes = extractEarthquakesFromJson(jsonResponse);
+        List<News> news = extractNewsFromJson(jsonResponse);
 
         // Return the list of {@link Earthquake}s
-        return earthquakes;
+        return news;
     }
 
     /**
@@ -95,7 +91,7 @@ public final class QueryUtils {
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
 
-        if(url== null){
+        if (url == null) {
             return jsonResponse;
         }
 
@@ -108,11 +104,11 @@ public final class QueryUtils {
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.connect();
 
-            if(urlConnection.getResponseCode()==200){
+            if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
-            }else{
-                Log.e(LOG_TAG, "Error response code " + urlConnection.getResponseCode() );
+            } else {
+                Log.e(LOG_TAG, "Error response code " + urlConnection.getResponseCode());
             }
 
         } catch (IOException e) {
@@ -135,7 +131,7 @@ public final class QueryUtils {
      * Return a list of {@link News} objects that has been built up from
      * parsing a JSON response.
      */
-    public static List<News> extractEarthquakesFromJson(String jsonResponse) {
+    public static List<News> extractNewsFromJson(String jsonResponse) {
 
         // Create an empty ArrayList that we can start adding news to
         ArrayList<News> news = new ArrayList<>();
@@ -145,33 +141,20 @@ public final class QueryUtils {
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
-
-
             JSONObject root = new JSONObject(jsonResponse);
 
             JSONObject response = root.getJSONObject("response");
 
             JSONArray array = response.getJSONArray("results");
 
-            for (int i = 0; i<array.length(); i++) {
+            for (int i = 0; i < array.length(); i++) {
                 JSONObject newsObject = array.getJSONObject(i);
-                //JSONObject propertiesObject = newsObject.getJSONObject("properties");
-                //Double mag = propertiesObject.getDouble("mag");
                 String section = newsObject.getString("sectionName");
                 String title = newsObject.getString("webTitle");
-                //Long date = propertiesObject.getLong("time");
                 String url = newsObject.getString("webUrl");
 
                 news.add(new News(section, title, url));
-
             }
-
-
-
-
-
-
-            // build up a list of Earthquake objects with the corresponding data.
 
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,
@@ -183,7 +166,4 @@ public final class QueryUtils {
         // Return the list of news
         return news;
     }
-
-
-
 }

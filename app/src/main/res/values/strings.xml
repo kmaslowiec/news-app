@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,17 +20,5 @@
 
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No internet connection.</string>
-
-    <string name="mag_double">1.5</string>
-
-    <string name="location_offset">Near Of</string>
-
-    <string name="primary_location">Szczecin</string>
-
-    <string name="date_string">Sep, 29, 1985</string>
-
-    <string name="time_string">15:00:00</string>
-
-    <string name="near_the">Near the</string>
 
 </resources>

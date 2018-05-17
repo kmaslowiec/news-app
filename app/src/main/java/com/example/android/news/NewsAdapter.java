@@ -33,7 +33,7 @@ package com.example.android.news;
  * */
 public class NewsAdapter extends ArrayAdapter<News> {
 
-    private static final String LOG_TAG = NewsAdapter.class.getSimpleName();
+    //private static final String LOG_TAG = NewsAdapter.class.getSimpleName(); // left for testing purposes
 
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
@@ -72,30 +72,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Get the {@link AndroidFlavor} object located at this position in the list
         News currentNewsItem = getItem(position);
 
-
-
-        // Find the TextView in the list_item.xml layout with the ID version_name
-        //TextView magTextView = (TextView) listItemView.findViewById(R.id.magnitude);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
-
-        //double magNum = currentNewsItem.getmMag();
-
-
-
-        // Set the proper background color on the magnitude circle.
-        // Fetch the background from the TextView, which is a GradientDrawable.
-        //GradientDrawable magnitudeCircle = (GradientDrawable) magTextView.getBackground();
-
-        // Get the appropriate background color based on the current earthquake magnitude
-        //int magnitudeColor = getMagnitudeColor(magNum);
-
-        // Set the color on the magnitude circle
-        //magnitudeCircle.setColor(magnitudeColor);
-
-        //magTextView.setText(Double.toString(magNum));
-
-        //Get String from Earthquake object
+        //get String from News Object
 
         String section = currentNewsItem.getmSection();
         String title = currentNewsItem.getmTitle();
@@ -104,134 +81,20 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // Find the TextView in the list_item.xml layout with the ID version_number
         TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section_name);
-        // Get the version number from the current Earthquake object and
 
-        // set this text on the number TextView
+        // set this text on the section_name TextView
         sectionTextView.setText(section);
 
         // TITLE TextView
 
         // Find the TextView in the list_item.xml layout with the ID version_number
         TextView locationTextView = (TextView) listItemView.findViewById(R.id.title);
-        // Get the version number from the current Earthquake object and
 
-        // set this text on the number TextView
+        // set this text on the title TextView
         locationTextView.setText(title);
 
-
-        // SETS DATE TextView
-
-        // Find the TextView in the list_item.xml layout with the ID version_number
-        //TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
-
-        // gets time in long
-        //Long timeUnix = currentNewsItem.getmDate();
-        // gets date object
-        //Date dateObject = new Date(timeUnix);
-        //sets the format of the date
-        //SimpleDateFormat dateFormat = new SimpleDateFormat("DD MM, yyyy");
-        //add date to the String
-        //String stringDate = dateFormat.format(dateObject);
-
-        //dateTextView.setText(stringDate);
-
-        // SETS TIME TextView
-
-        // Find the TextView in the list_item.xml layout with the ID version_number
-        // TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
-
-        // gets date object
-        //Date timeObject = new Date(timeUnix);
-        //sets the format of the date
-        //SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm");
-        //add date to the String
-        //String stringTime = timeFormat.format(timeObject);
-
-
-        //timeTextView.setText(stringTime);
-
-        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
-        //ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
-        // Get the image resource ID from the current AndroidFlavor object and
-        // set the image to iconView
-        //iconView.setImageResource(currentNewsItem.getImageResourceId());
-
-        // Return the whole list item layout (containing 2 TextViews and an ImageView)
-        // so that it can be shown in the ListView
         return listItemView;
     }
-
-    private int getMagnitudeColor(double magnitude){
-
-        int magnitudeColorResourceId;
-        int magnitudeFloor = (int) Math.floor(magnitude);
-        switch (magnitudeFloor) {
-            case 0:
-            case 1:
-                magnitudeColorResourceId = R.color.magnitude1;
-                break;
-            case 2:
-                magnitudeColorResourceId = R.color.magnitude2;
-                break;
-            case 3:
-                magnitudeColorResourceId = R.color.magnitude3;
-                break;
-            case 4:
-                magnitudeColorResourceId = R.color.magnitude4;
-                break;
-            case 5:
-                magnitudeColorResourceId = R.color.magnitude5;
-                break;
-            case 6:
-                magnitudeColorResourceId = R.color.magnitude6;
-                break;
-            case 7:
-                magnitudeColorResourceId = R.color.magnitude7;
-                break;
-            case 8:
-                magnitudeColorResourceId = R.color.magnitude8;
-                break;
-            case 9:
-                magnitudeColorResourceId = R.color.magnitude9;
-                break;
-            default:
-                magnitudeColorResourceId = R.color.magnitude10plus;
-                break;
-        }
-        return ContextCompat.getColor(getContext(), magnitudeColorResourceId);
-
-    }
-
-    // MY WAY TO SPLIT THE STRING
-
-    /*static String[] splitter(String s){
-
-            String[] array = s.split(SEPERATOR);
-
-        if(s.contains(SEPERATOR)) {
-            *//*int numOf = s.indexOf("of");
-
-            int length1 = s.length();*//*
-
-            String firstText = s.substring(0, numOf+3);
-
-            String secondText = s.substring(numOf+3, length1);
-
-            array[0] = firstText;
-            array[1] = secondText;
-        }else {
-            array[0] = "Near of";
-            array[1] = s;
-        }
-
-
-        return array;
-
-    }*/
 
 }
 
