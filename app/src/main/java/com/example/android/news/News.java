@@ -9,10 +9,10 @@ public class News {
 
 
 
-    public News(double mMag, String mPlace, Long mDate, String mUrl) {
-        this.mMag = mMag;
+    public News(String mPlace, String mUrl) {
+       // this.mMag = mMag;
         this.mPlace = mPlace;
-        this.mDate = mDate;
+        //this.mDate = mDate;
         this.mUrl = mUrl;
 
     }

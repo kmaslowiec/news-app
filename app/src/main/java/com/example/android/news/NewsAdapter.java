@@ -81,25 +81,25 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
 
         // Find the TextView in the list_item.xml layout with the ID version_name
-        TextView magTextView = (TextView) listItemView.findViewById(R.id.magnitude);
+        //TextView magTextView = (TextView) listItemView.findViewById(R.id.magnitude);
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
 
-        double magNum = currentEarthQuakeItem.getmMag();
+        //double magNum = currentEarthQuakeItem.getmMag();
 
 
 
         // Set the proper background color on the magnitude circle.
         // Fetch the background from the TextView, which is a GradientDrawable.
-        GradientDrawable magnitudeCircle = (GradientDrawable) magTextView.getBackground();
+        //GradientDrawable magnitudeCircle = (GradientDrawable) magTextView.getBackground();
 
         // Get the appropriate background color based on the current earthquake magnitude
-        int magnitudeColor = getMagnitudeColor(magNum);
+        //int magnitudeColor = getMagnitudeColor(magNum);
 
         // Set the color on the magnitude circle
-        magnitudeCircle.setColor(magnitudeColor);
+        //magnitudeCircle.setColor(magnitudeColor);
 
-        magTextView.setText(Double.toString(magNum));
+        //magTextView.setText(Double.toString(magNum));
 
         //Get String from Earthquake object
 
@@ -136,20 +136,20 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // SETS DATE TextView
 
         // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
+        //TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
 
         // gets time in long
-        Long timeUnix = currentEarthQuakeItem.getmDate();
+        //Long timeUnix = currentEarthQuakeItem.getmDate();
         // gets date object
-        Date dateObject = new Date(timeUnix);
+        //Date dateObject = new Date(timeUnix);
         //sets the format of the date
-        SimpleDateFormat dateFormat = new SimpleDateFormat("DD MM, yyyy");
+        //SimpleDateFormat dateFormat = new SimpleDateFormat("DD MM, yyyy");
         //add date to the String
-        String stringDate = dateFormat.format(dateObject);
+        //String stringDate = dateFormat.format(dateObject);
 
-        dateTextView.setText(stringDate);
+        //dateTextView.setText(stringDate);
 
         // SETS TIME TextView
 
@@ -159,14 +159,14 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // set this text on the number TextView
 
         // gets date object
-        Date timeObject = new Date(timeUnix);
+        //Date timeObject = new Date(timeUnix);
         //sets the format of the date
-        SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm");
+        //SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm");
         //add date to the String
-        String stringTime = timeFormat.format(timeObject);
+        //String stringTime = timeFormat.format(timeObject);
 
 
-        timeTextView.setText(stringTime);
+        //timeTextView.setText(stringTime);
 
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
         //ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);

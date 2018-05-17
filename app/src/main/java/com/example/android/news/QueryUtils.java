@@ -137,29 +137,31 @@ public final class QueryUtils {
      */
     public static List<News> extractEarthquakesFromJson(String jsonResponse) {
 
-        // Create an empty ArrayList that we can start adding earthquakes to
-        ArrayList<News> earthquakes = new ArrayList<>();
+        // Create an empty ArrayList that we can start adding news to
+        ArrayList<News> news = new ArrayList<>();
 
         // Try to parse the SAMPLE_JSON_RESPONSE. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
-            // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
+
 
             JSONObject root = new JSONObject(jsonResponse);
 
-            JSONArray array = root.getJSONArray("features");
+            JSONObject response = root.getJSONObject("response");
+
+            JSONArray array = response.getJSONArray("results");
 
             for (int i = 0; i<array.length(); i++) {
-                JSONObject earthquakeObject = array.getJSONObject(i);
-                JSONObject propertiesObject = earthquakeObject.getJSONObject("properties");
-                Double mag = propertiesObject.getDouble("mag");
-                String place = propertiesObject.getString("place");
-                Long date = propertiesObject.getLong("time");
-                String url = propertiesObject.getString("url");
+                JSONObject newsObject = array.getJSONObject(i);
+                //JSONObject propertiesObject = newsObject.getJSONObject("properties");
+                //Double mag = propertiesObject.getDouble("mag");
+                String place = newsObject.getString("type");
+                //Long date = propertiesObject.getLong("time");
+                String url = newsObject.getString("webUrl");
 
-                earthquakes.add(new News(mag, place, date, url));
+                news.add(new News(place, url));
 
             }
 
@@ -177,8 +179,8 @@ public final class QueryUtils {
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
         }
 
-        // Return the list of earthquakes
-        return earthquakes;
+        // Return the list of news
+        return news;
     }
 
 

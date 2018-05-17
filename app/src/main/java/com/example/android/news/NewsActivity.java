@@ -36,10 +36,15 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
 
     // public static final String LOG_TAG = NewsActivity.class.getName();
 
-    private static final int EARTHQUAKE_LOADER_ID = 1;
+    private static final int NEWS_LOADER_ID = 1;
 
-    private static final String USGS_REQUEST_URL =
-            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
+    /*private static final String NEWS_REQUEST_URL =
+            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";*/
+
+    private static final String NEWS_REQUEST_URL =
+            "https://content.guardianapis.com/search?api-key=324abccc-2a86-4559-93d6-a8824bca3c0f";
+
+
 
     /** Adapter for the list of earthquakes */
     private NewsAdapter mAdapter;
@@ -98,7 +103,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
                                 // Initialize the loader. Pass in the int ID constant defined above and pass in null for
                                         // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
                                                 // because this activity implements the LoaderCallbacks interface).
-                                                       loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
+                                                       loaderManager.initLoader(NEWS_LOADER_ID, null, this);
                     } else {
                         // Otherwise, display error
                                 // First, hide loading indicator so error message will be visible
@@ -115,7 +120,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
 
-        return new NewsLoader(this, USGS_REQUEST_URL);
+        return new NewsLoader(this, NEWS_REQUEST_URL);
 
     }
 
