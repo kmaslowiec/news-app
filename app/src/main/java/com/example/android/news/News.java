@@ -2,33 +2,27 @@ package com.example.android.news;
 
 public class News {
 
-    private double mMag;
-    private String mPlace;
-    private Long mDate;
+
+    private String mSection;
+    private String mTitle;
     private String mUrl;
 
 
 
-    public News(String mPlace, String mUrl) {
-       // this.mMag = mMag;
-        this.mPlace = mPlace;
-        //this.mDate = mDate;
+    public News(String mSection, String mTitle, String mUrl) {
+
+        this.mSection = mSection;
+        this.mTitle =mTitle;
         this.mUrl = mUrl;
 
     }
 
-    public double getmMag() {
-        return mMag;
+
+    public String getmSection() {
+        return mSection;
     }
 
-
-    public String getmPlace() {
-        return mPlace;
-    }
-
-    public Long getmDate() {
-        return mDate;
-    }
+    public String getmTitle() { return mTitle; }
 
     public String getmUrl() {
         return mUrl;

@@ -18,7 +18,6 @@ package com.example.android.news;
          */
 
         import android.app.Activity;
-        import android.graphics.drawable.GradientDrawable;
         import android.support.v4.content.ContextCompat;
         import android.view.LayoutInflater;
         import android.view.View;
@@ -26,9 +25,7 @@ package com.example.android.news;
         import android.widget.ArrayAdapter;
         import android.widget.TextView;
 
-        import java.text.SimpleDateFormat;
         import java.util.ArrayList;
-        import java.util.Date;
 
 /*
  * {@link AndroidFlavorAdapter} is an {@link ArrayAdapter} that can provide the layout for each list
@@ -37,9 +34,6 @@ package com.example.android.news;
 public class NewsAdapter extends ArrayAdapter<News> {
 
     private static final String LOG_TAG = NewsAdapter.class.getSimpleName();
-    private static final String SEPERATOR = " of ";
-    String primaryLocation;
-    String locationOffset;
 
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
@@ -47,14 +41,14 @@ public class NewsAdapter extends ArrayAdapter<News> {
      * to populate into the lists.
      *
      * @param context        The current context. Used to inflate the layout file.
-     * @param earthquakes A List of Earthquake objects to display in a list
+     * @param news A List of Earthquake objects to display in a list
      */
-    public NewsAdapter(Activity context, ArrayList<News> earthquakes) {
+    public NewsAdapter(Activity context, ArrayList<News> news) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
         // going to use this second argument, so it can be any value. Here, we used 0.
-        super(context, 0, earthquakes);
+        super(context, 0, news);
     }
 
     /**
@@ -76,7 +70,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
 
         // Get the {@link AndroidFlavor} object located at this position in the list
-        News currentEarthQuakeItem = getItem(position);
+        News currentNewsItem = getItem(position);
 
 
 
@@ -85,7 +79,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
 
-        //double magNum = currentEarthQuakeItem.getmMag();
+        //double magNum = currentNewsItem.getmMag();
 
 
 
@@ -103,34 +97,26 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         //Get String from Earthquake object
 
-        String place = currentEarthQuakeItem.getmPlace();
+        String section = currentNewsItem.getmSection();
+        String title = currentNewsItem.getmTitle();
 
-        if (place.contains(SEPERATOR)) {
-            String[] parts = place.split(SEPERATOR);
-            locationOffset = parts[0] + SEPERATOR;
-            primaryLocation = parts[1];
-        } else {
-            locationOffset = getContext().getString(R.string.near_the);
-            primaryLocation = place;
-        }
-
-        // LOCATION OFFSET TextView
+        // SECTION TextView
 
         // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView offsetTextView = (TextView) listItemView.findViewById(R.id.location_offset);
+        TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section_name);
         // Get the version number from the current Earthquake object and
 
         // set this text on the number TextView
-        offsetTextView.setText(locationOffset);
+        sectionTextView.setText(section);
 
-        // PRIMARY LOCATION TextView
+        // TITLE TextView
 
         // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView locationTextView = (TextView) listItemView.findViewById(R.id.primary_location);
+        TextView locationTextView = (TextView) listItemView.findViewById(R.id.title);
         // Get the version number from the current Earthquake object and
 
         // set this text on the number TextView
-        locationTextView.setText(primaryLocation);
+        locationTextView.setText(title);
 
 
         // SETS DATE TextView
@@ -141,7 +127,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // set this text on the number TextView
 
         // gets time in long
-        //Long timeUnix = currentEarthQuakeItem.getmDate();
+        //Long timeUnix = currentNewsItem.getmDate();
         // gets date object
         //Date dateObject = new Date(timeUnix);
         //sets the format of the date
@@ -154,7 +140,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // SETS TIME TextView
 
         // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
+        // TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
 
@@ -172,7 +158,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         //ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
         // Get the image resource ID from the current AndroidFlavor object and
         // set the image to iconView
-        //iconView.setImageResource(currentEarthQuakeItem.getImageResourceId());
+        //iconView.setImageResource(currentNewsItem.getImageResourceId());
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

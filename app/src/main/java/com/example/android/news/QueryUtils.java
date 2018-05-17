@@ -157,11 +157,12 @@ public final class QueryUtils {
                 JSONObject newsObject = array.getJSONObject(i);
                 //JSONObject propertiesObject = newsObject.getJSONObject("properties");
                 //Double mag = propertiesObject.getDouble("mag");
-                String place = newsObject.getString("type");
+                String section = newsObject.getString("sectionName");
+                String title = newsObject.getString("webTitle");
                 //Long date = propertiesObject.getLong("time");
                 String url = newsObject.getString("webUrl");
 
-                news.add(new News(place, url));
+                news.add(new News(section, title, url));
 
             }
 
