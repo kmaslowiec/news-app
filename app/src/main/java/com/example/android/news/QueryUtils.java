@@ -27,7 +27,6 @@ public final class QueryUtils {
      */
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
      * This class is only meant to hold static variables and methods, which can be accessed
