@@ -79,7 +79,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // SECTION TextView
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find the TextView in the list_item.menu layout with the ID version_number
         TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section_name);
 
         // set this text on the section_name TextView
@@ -87,7 +87,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // TITLE TextView
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find the TextView in the list_item.menu layout with the ID version_number
         TextView locationTextView = (TextView) listItemView.findViewById(R.id.title);
 
         // set this text on the title TextView
