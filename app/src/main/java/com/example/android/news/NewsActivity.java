@@ -19,10 +19,12 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,7 +43,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final int NEWS_LOADER_ID = 1;
 
     private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?api-key=324abccc-2a86-4559-93d6-a8824bca3c0f";
+            "https://content.guardianapis.com/search?"; //api-key=324abccc-2a86-4559-93d6-a8824bca3c0f
 
     /**
      * Adapter for the list of news
@@ -112,8 +114,11 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
+    /** Loads the URI of the website **/
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
+
+
 
         return new NewsLoader(this, NEWS_REQUEST_URL);
 
@@ -169,6 +174,10 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 
 
 }
