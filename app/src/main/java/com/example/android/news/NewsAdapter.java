@@ -76,6 +76,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         String section = currentNewsItem.getmSection();
         String title = currentNewsItem.getmTitle();
+        String date = currentNewsItem.getmDate();
 
         // SECTION TextView
 
@@ -92,6 +93,20 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // set this text on the title TextView
         locationTextView.setText(title);
+
+        // DATE & TIME TextViews
+
+        // date
+
+        TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
+        String onlyDate = date.substring(0,10);
+        dateTextView.setText(onlyDate);
+
+        // time
+
+        TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
+        String onlyTime = date.substring(11,19);
+        timeTextView.setText(onlyTime);
 
         return listItemView;
     }

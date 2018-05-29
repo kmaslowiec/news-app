@@ -16,7 +16,7 @@
     <string name="app_name">News for You</string>
 
     <string name="settings_section_label">Default section</string>
-    <string name="settings_def_section_key" translatable="false">def_magnitude</string>
+    <string name="settings_section_key" translatable="false">key_magnitude</string>
     <string name="settings_section_default" translatable="false">technology</string>
 
     <!-- Text to display in the list when there are no earthquakes [CHAR LIMIT=NONE] -->
@@ -36,19 +36,19 @@
 
     <!-- Label for order-by technology option [CHAR LIMIT=20] -->
     <string name="settings_order_by_technology_label">Technology</string>
-    <string name="settings_order_by_technology_value" translatable="false">Technology</string>
+    <string name="settings_order_by_technology_value" translatable="false">technology</string>
 
     <!-- Label for order-by business option [CHAR LIMIT=20] -->
     <string name="settings_order_by_business_label">Business</string>
-    <string name="settings_order_by_business_value" translatable="false">Business</string>
+    <string name="settings_order_by_business_value" translatable="false">business</string>
 
     <!-- Label for order-by news option [CHAR LIMIT=20] -->
     <string name="settings_order_by_news_label">News</string>
-    <string name="settings_order_by_news_value" translatable="false">News</string>
+    <string name="settings_order_by_news_value" translatable="false">news</string>
 
     <!-- Label for order-by politics option [CHAR LIMIT=20] -->
     <string name="settings_order_by_politics_label">Politics</string>
-    <string name="settings_order_by_politics_value" translatable="false">Politics</string>
+    <string name="settings_order_by_politics_value" translatable="false">politics</string>
 
 
 

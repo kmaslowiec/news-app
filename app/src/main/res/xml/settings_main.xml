@@ -11,7 +11,7 @@
         android:defaultValue="@string/settings_order_by_default"
         android:entries="@array/settings_order_by_labels"
         android:entryValues="@array/settings_order_by_values"
-        android:key="@string/settings_def_section_key"
+        android:key="@string/settings_section_key"
         android:title="@string/settings_order_by_label" />
 
 

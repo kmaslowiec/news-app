@@ -5,12 +5,17 @@ public class News {
     private String mSection;
     private String mTitle;
     private String mUrl;
+    private String mDate;
 
-    public News(String mSection, String mTitle, String mUrl) {
+
+
+    public News(String mSection, String mTitle, String mUrl, String mDate) {
 
         this.mSection = mSection;
         this.mTitle = mTitle;
+
         this.mUrl = mUrl;
+        this.mDate = mDate;
 
     }
 
@@ -25,5 +30,7 @@ public class News {
     public String getmUrl() {
         return mUrl;
     }
+
+    public String getmDate() { return mDate; }
 
 }

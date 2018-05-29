@@ -150,9 +150,10 @@ public final class QueryUtils {
                 JSONObject newsObject = array.getJSONObject(i);
                 String section = newsObject.getString("sectionName");
                 String title = newsObject.getString("webTitle");
+                String date = newsObject.getString("webPublicationDate");
                 String url = newsObject.getString("webUrl");
 
-                news.add(new News(section, title, url));
+                news.add(new News(section, title, url, date));
             }
 
         } catch (JSONException e) {
