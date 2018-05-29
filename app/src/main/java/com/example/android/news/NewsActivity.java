@@ -120,7 +120,30 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
 
-        return new NewsLoader(this, NEWS_REQUEST_URL);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // getString retrieves a String value from the preferences. The second parameter is the default value for this preference.
+        /*String minMagnitude = sharedPrefs.getString(
+                getString(R.string.settings_min_magnitude_key),
+                getString(R.string.settings_min_magnitude_default));*/
+
+        // parse breaks apart the URI string that's passed into its parameter
+        Uri baseUri = Uri.parse(NEWS_REQUEST_URL);
+
+        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // Append query parameter and its value. For example, the `format=geojson`
+        /*uriBuilder.appendQueryParameter("format", "geojson");
+        uriBuilder.appendQueryParameter("limit", "10");
+        //uriBuilder.appendQueryParameter("minmag", minMagnitude);
+        ;*/
+        //uriBuilder.appendQueryParameter("orderby", "newest");
+        uriBuilder.appendQueryParameter("section", "politics");
+        uriBuilder.appendQueryParameter("api-key", "324abccc-2a86-4559-93d6-a8824bca3c0f");
+
+        // Return the completed uri `http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=10&minmag=minMagnitude&orderby=time
+        return new NewsLoader(this, uriBuilder.toString());
 
     }
 
