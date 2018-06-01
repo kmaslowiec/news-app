@@ -111,7 +111,7 @@ public final class QueryUtils {
             }
 
         } catch (IOException e) {
-            // TODO: Handle the exception
+
             Log.e(LOG_TAG, "Problem with internet connection", e);
 
         } finally {

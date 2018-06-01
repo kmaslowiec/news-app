@@ -17,17 +17,16 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.settings_activity);
     }
 
-    public static class NewsPreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener{
+    public static class NewsPreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
 
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
+            super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
 
             Preference defSection = findPreference(getString(R.string.settings_section_key));
             bindPreferenceSummaryToValue(defSection);
         }
-
 
 
         @Override

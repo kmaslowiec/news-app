@@ -8,7 +8,6 @@ public class News {
     private String mDate;
 
 
-
     public News(String mSection, String mTitle, String mUrl, String mDate) {
 
         this.mSection = mSection;
@@ -31,6 +30,8 @@ public class News {
         return mUrl;
     }
 
-    public String getmDate() { return mDate; }
+    public String getmDate() {
+        return mDate;
+    }
 
 }

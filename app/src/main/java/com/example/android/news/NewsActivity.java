@@ -37,7 +37,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
-
+    // TODO: Change icon
+    // TODO: Clean the code
     // public static final String LOG_TAG = NewsActivity.class.getName(); // left for testing purposes
 
     private static final int NEWS_LOADER_ID = 1;
@@ -114,16 +115,17 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
-    /** Loads the URI of the website **/
+    /**
+     * Loads the URI of the website
+     **/
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
-
 
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // getString retrieves a String value from the preferences. The second parameter is the default value for this preference.
-        String orderBy  = sharedPrefs.getString(
+        String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_section_key),
                 getString(R.string.settings_section_default)
         );
@@ -133,13 +135,6 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
 
         // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
         Uri.Builder uriBuilder = baseUri.buildUpon();
-
-        // Append query parameter and its value. For example, the `format=geojson`
-        /*uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", "10");
-        //uriBuilder.appendQueryParameter("minmag", minMagnitude);
-        ;*/
-        //uriBuilder.appendQueryParameter("orderby", "newest");
         uriBuilder.appendQueryParameter("section", orderBy);
         uriBuilder.appendQueryParameter("api-key", "324abccc-2a86-4559-93d6-a8824bca3c0f");
 
@@ -198,10 +193,6 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 
 
 }

@@ -16,7 +16,7 @@
     <string name="app_name">News for You</string>
 
     <string name="settings_section_label">Default section</string>
-    <string name="settings_section_key" translatable="false">key_magnitude</string>
+    <string name="settings_section_key" translatable="false">key_section</string>
     <string name="settings_section_default" translatable="false">technology</string>
 
     <!-- Text to display in the list when there are no earthquakes [CHAR LIMIT=NONE] -->

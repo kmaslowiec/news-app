@@ -1,31 +1,31 @@
 package com.example.android.news;
 
 
-        /*
-         * Copyright (C) 2016 The Android Open Source Project
-         *
-         * Licensed under the Apache License, Version 2.0 (the "License");
-         * you may not use this file except in compliance with the License.
-         * You may obtain a copy of the License at
-         *
-         *      http://www.apache.org/licenses/LICENSE-2.0
-         *
-         * Unless required by applicable law or agreed to in writing, software
-         * distributed under the License is distributed on an "AS IS" BASIS,
-         * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-         * See the License for the specific language governing permissions and
-         * limitations under the License.
-         */
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-        import android.app.Activity;
-        import android.support.v4.content.ContextCompat;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ArrayAdapter;
-        import android.widget.TextView;
+import android.app.Activity;
+import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
 /*
  * {@link AndroidFlavorAdapter} is an {@link ArrayAdapter} that can provide the layout for each list
@@ -40,8 +40,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
      * The context is used to inflate the layout file, and the list is the data we want
      * to populate into the lists.
      *
-     * @param context        The current context. Used to inflate the layout file.
-     * @param news A List of Earthquake objects to display in a list
+     * @param context The current context. Used to inflate the layout file.
+     * @param news    A List of Earthquake objects to display in a list
      */
     public NewsAdapter(Activity context, ArrayList<News> news) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
@@ -54,22 +54,22 @@ public class NewsAdapter extends ArrayAdapter<News> {
     /**
      * Provides a view for an AdapterView (ListView, GridView, etc.)
      *
-     * @param position The position in the list of data that should be displayed in the
-     *                 list item view.
+     * @param position    The position in the list of data that should be displayed in the
+     *                    list item view.
      * @param convertView The recycled view to populate.
-     * @param parent The parent ViewGroup that is used for inflation.
+     * @param parent      The parent ViewGroup that is used for inflation.
      * @return The View for the position in the AdapterView.
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
 
-        // Get the {@link AndroidFlavor} object located at this position in the list
+        // Get the {@link News} object located at this position in the list
         News currentNewsItem = getItem(position);
 
         //get String from News Object
@@ -99,13 +99,13 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // date
 
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
-        String onlyDate = date.substring(0,10);
+        String onlyDate = date.substring(0, 10);
         dateTextView.setText(onlyDate);
 
         // time
 
         TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
-        String onlyTime = date.substring(11,19);
+        String onlyTime = date.substring(11, 19);
         timeTextView.setText(onlyTime);
 
         return listItemView;
