@@ -6,15 +6,19 @@ public class News {
     private String mTitle;
     private String mUrl;
     private String mDate;
+    private String mAuthor;
 
 
-    public News(String mSection, String mTitle, String mUrl, String mDate) {
+
+
+    public News(String mSection, String mTitle, String mUrl, String mDate, String mAuthor) {
 
         this.mSection = mSection;
         this.mTitle = mTitle;
-
         this.mUrl = mUrl;
         this.mDate = mDate;
+        this.mAuthor = mAuthor;
+
 
     }
 
@@ -34,4 +38,5 @@ public class News {
         return mDate;
     }
 
+    public String getmAuthor() { return mAuthor; }
 }

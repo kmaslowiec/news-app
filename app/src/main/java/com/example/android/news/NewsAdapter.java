@@ -77,6 +77,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         String section = currentNewsItem.getmSection();
         String title = currentNewsItem.getmTitle();
         String date = currentNewsItem.getmDate();
+        String author = currentNewsItem.getmAuthor();
 
         // SECTION TextView
 
@@ -107,6 +108,19 @@ public class NewsAdapter extends ArrayAdapter<News> {
         TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
         String onlyTime = date.substring(11, 19);
         timeTextView.setText(onlyTime);
+
+        // AUTHOR TextView
+
+        TextView authorTextView = (TextView) listItemView.findViewById(R.id.author);
+
+
+
+        if(author!=null){
+            authorTextView.setText(author);
+            authorTextView.setVisibility(View.VISIBLE);
+        }else {
+            authorTextView.setVisibility(View.GONE);
+        }
 
         return listItemView;
     }

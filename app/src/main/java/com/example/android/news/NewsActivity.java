@@ -37,8 +37,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
-    // TODO: Change icon
-    // TODO: Clean the code
     // public static final String LOG_TAG = NewsActivity.class.getName(); // left for testing purposes
 
     private static final int NEWS_LOADER_ID = 1;

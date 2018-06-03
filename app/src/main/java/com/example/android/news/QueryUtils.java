@@ -152,8 +152,15 @@ public final class QueryUtils {
                 String title = newsObject.getString("webTitle");
                 String date = newsObject.getString("webPublicationDate");
                 String url = newsObject.getString("webUrl");
+                String author;
+                if(newsObject.has("author")){
+                    author = newsObject.getString("author");
+                }
+                else{
+                    author = null;
+                }
 
-                news.add(new News(section, title, url, date));
+                news.add(new News(section, title, url, date, author));
             }
 
         } catch (JSONException e) {
