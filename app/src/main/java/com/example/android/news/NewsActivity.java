@@ -133,6 +133,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
 
         // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
         Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
         uriBuilder.appendQueryParameter("section", orderBy);
         uriBuilder.appendQueryParameter("api-key", "324abccc-2a86-4559-93d6-a8824bca3c0f");
 

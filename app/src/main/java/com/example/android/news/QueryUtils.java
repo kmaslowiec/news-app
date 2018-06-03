@@ -152,13 +152,13 @@ public final class QueryUtils {
                 String title = newsObject.getString("webTitle");
                 String date = newsObject.getString("webPublicationDate");
                 String url = newsObject.getString("webUrl");
-                String author;
-                if(newsObject.has("author")){
-                    author = newsObject.getString("author");
-                }
-                else{
-                    author = null;
-                }
+
+
+                JSONArray tags = newsObject.getJSONArray("tags");
+                JSONObject id = tags.getJSONObject(0);
+                String author = id.getString("webTitle");
+
+
 
                 news.add(new News(section, title, url, date, author));
             }

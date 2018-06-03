@@ -8,9 +8,6 @@ public class News {
     private String mDate;
     private String mAuthor;
 
-
-
-
     public News(String mSection, String mTitle, String mUrl, String mDate, String mAuthor) {
 
         this.mSection = mSection;
@@ -18,7 +15,6 @@ public class News {
         this.mUrl = mUrl;
         this.mDate = mDate;
         this.mAuthor = mAuthor;
-
 
     }
 

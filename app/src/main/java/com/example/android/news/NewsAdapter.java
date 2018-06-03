@@ -113,7 +113,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         TextView authorTextView = (TextView) listItemView.findViewById(R.id.author);
 
-
+        authorTextView.setText(author);
 
         if(author!=null){
             authorTextView.setText(author);
